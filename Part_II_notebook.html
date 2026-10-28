@@ -7802,7 +7802,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Part-II-%E2%80%94-Ford-GoBike-Trip-Data:-Explanatory-Analysis">Part II - Ford GoBike Trip Data: Explanatory Analysis<a class="anchor-link" href="#Part-II-%E2%80%94-Ford-GoBike-Trip-Data:-Explanatory-Analysis">¶</a></h1><h2 id="by-Eduardo-Nicacio">by Eduardo Nicacio<a class="anchor-link" href="#by-Eduardo-Nicacio">¶</a></h2>
+<h1 id="Part-II---Ford-GoBike-Trip-Data:-Explanatory-Analysis">Part II - Ford GoBike Trip Data: Explanatory Analysis<a class="anchor-link" href="#Part-II---Ford-GoBike-Trip-Data:-Explanatory-Analysis">¶</a></h1><h2 id="by-Eduardo-Nicacio">by Eduardo Nicacio<a class="anchor-link" href="#by-Eduardo-Nicacio">¶</a></h2>
 </div>
 </div>
 </div>
@@ -7816,14 +7816,14 @@ a.anchor-link {
 <h2 id="Investigation-Overview">Investigation Overview<a class="anchor-link" href="#Investigation-Overview">¶</a></h2><blockquote>
 <p><strong>Theme: Understanding what drives trip duration in the Ford GoBike system.</strong></p>
 </blockquote>
-<p>This presentation distills the exploration in Part I into the story of <em>how the bike-share is actually used</em> - and what that means for the system. The analysis is based on <strong>174,955 cleaned trips</strong> from February 2019.</p>
+<p>This deck covers <strong>174,955 cleaned trips</strong> from February 2019, using the same cleaning pipeline as Part I so the numbers match the exploration.</p>
 <p><strong>Executive summary of key insights:</strong></p>
 <ol>
-<li><strong>Trip durations are right-skewed; log-transformation reveals a near-normal distribution</strong> - a median trip lasts <strong>~8.5 minutes</strong> and 96.5% of trips stay under 30 minutes.</li>
-<li><strong>Casual Customers take significantly longer trips than Subscribers</strong> - roughly <strong>2× the average duration</strong> (21.8 vs. 10.7 minutes).</li>
-<li><strong>Usage patterns strongly reflect weekday commuting behavior for Subscribers</strong> - sharp 8 AM and 5–6 PM spikes on weekdays vs. broad midday leisure riding.</li>
-<li><strong>Member age distribution peaks in the late 20s–early 30s</strong> (median 32); age shows no meaningful effect on trip length.</li>
-<li><strong>Gender differences exist in ridership volume</strong> (Male ≈ 74.6% of trips) <strong>but are modest in trip duration</strong>.</li>
+<li><strong>Trip durations are right-skewed; log-transformation reveals a near-normal distribution</strong> - the median trip lasts <strong>~8.5 minutes</strong>, and 96.5% stay under 30.</li>
+<li><strong>Casual Customers ride roughly 2× longer than Subscribers</strong> - 21.8 vs. 10.7 minutes on average.</li>
+<li><strong>Subscriber usage is weekday commuting</strong> - sharp 8 AM and 5–6 PM spikes, with weekends flattening into midday leisure riding.</li>
+<li><strong>Age peaks in the late 20s–early 30s</strong> (median 32) - but it doesn't move trip length.</li>
+<li><strong>Gender changes who rides, not how long</strong> - Male ≈ 74.6% of trips, with nearly identical duration distributions across levels.</li>
 </ol>
 <p><em>Note: the dataset for this analysis is provided with Udacity's project materials.</em></p>
 </div>
@@ -8106,7 +8106,7 @@ Name: proportion, dtype: float64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Visualization-1-%E2%80%94-How-long-is-a-typical-trip?">Visualization 1 - How long is a typical trip?<a class="anchor-link" href="#Visualization-1-%E2%80%94-How-long-is-a-typical-trip?">¶</a></h2><p>Trips range from about one minute to nearly a full day, so the distribution is presented on a log-scaled axis with a dashed line marking the median - otherwise the handful of overnight trips would crush every short commute into one bar.</p>
+<h2 id="Visualization-1---How-long-is-a-typical-trip?">Visualization 1 - How long is a typical trip?<a class="anchor-link" href="#Visualization-1---How-long-is-a-typical-trip?">¶</a></h2><p>Trips range from about one minute to nearly a full day, so the distribution is presented on a log-scaled axis with a dashed line marking the median - otherwise the handful of overnight trips would crush every short commute into one bar.</p>
 </div>
 </div>
 </div>
@@ -8156,7 +8156,7 @@ Name: proportion, dtype: float64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Observation:</strong> The typical GoBike trip is short - just <strong>8.5 minutes at the median</strong>. The log histogram is near-normal around that peak: <strong>96.5% of trips finish within 30 minutes</strong>, though a thin tail of long rides reaches ~23 hours. <em>Take-away:</em> durations are predictable and centered on short trips, which is exactly why the next breakdown - who rides how long - matters.</p>
+<p><strong>Observation:</strong> The median trip is <strong>8.5 minutes</strong>. On the log scale the histogram looks near-normal around that peak: <strong>96.5%</strong> of trips finish within 30 minutes, and a thin tail reaches ~23 hours. Short rides are the norm here - the variation worth explaining is <em>who</em> is riding them, which is the next chart.</p>
 </div>
 </div>
 </div>
@@ -8167,7 +8167,7 @@ Name: proportion, dtype: float64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Visualization-2-%E2%80%94-Who-rides-how-long?">Visualization 2 - Who rides how long?<a class="anchor-link" href="#Visualization-2-%E2%80%94-Who-rides-how-long?">¶</a></h2><p>Duration by user type is the most <strong>actionable</strong> insight of the analysis: Subscribers are morning-and-evening commuters, while casual Customers are leisure riders - and their contract structures should follow. Box plots on a log axis, with each box's median annotated, make the two-to-one gap explicit.</p>
+<h2 id="Visualization-2---Who-rides-how-long?">Visualization 2 - Who rides how long?<a class="anchor-link" href="#Visualization-2---Who-rides-how-long?">¶</a></h2><p>Duration by user type is the most <strong>actionable</strong> insight of the analysis: Subscribers are morning-and-evening commuters, while casual Customers are leisure riders - and their contract structures should follow. Box plots on a log axis, with each box's median annotated, make the two-to-one gap explicit.</p>
 </div>
 </div>
 </div>
@@ -8217,7 +8217,7 @@ Name: proportion, dtype: float64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Observation:</strong> Customers (median <strong>13.0 min</strong>, mean <strong>21.8 min</strong>) ride roughly <strong>twice as long</strong> as Subscribers (median <strong>8.2 min</strong>, mean <strong>10.7 min</strong>), and Customer trips exceed an hour at ~10× the Subscriber rate (4.2% vs. 0.4%). <em>Take-away:</em> Customers are leisure riders; Subscribers are commuters - membership pricing works for the quick-return commuter, but casual leisure riders need simple flat-rate or day-pass framing. This is why the median annotations matter more than the whiskers: even without reading the log axis, the printed medians carry the message.</p>
+<p><strong>Observation:</strong> The 2× gap is the headline: Customers median <strong>13.0 min</strong>, mean <strong>21.8 min</strong>, against Subscribers at <strong>8.2</strong> and <strong>10.7</strong>. On the rates side, 4.2% of Customer trips go past an hour vs. 0.4% for Subscribers - a 10× difference. The read: Subscribers run quick, fixed-purpose commutes; Customers behave like leisure or occasional riders. That is why the printed medians matter more than the whiskers on a log axis.</p>
 </div>
 </div>
 </div>
@@ -8228,7 +8228,7 @@ Name: proportion, dtype: float64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Visualization-3-%E2%80%94-When-is-the-system-used?">Visualization 3 - When is the system used?<a class="anchor-link" href="#Visualization-3-%E2%80%94-When-is-the-system-used?">¶</a></h2><p>The user-type contrast above predicts <em>when</em> rides happen, so this heatmap connects the two: weekday rows carry two sharp commute ridges, driven almost entirely by Subscribers (90.5% of trips), while weekends shift to a broad midday leisure band.</p>
+<h2 id="Visualization-3---When-is-the-system-used?">Visualization 3 - When is the system used?<a class="anchor-link" href="#Visualization-3---When-is-the-system-used?">¶</a></h2><p>The user-type contrast above predicts <em>when</em> rides happen, so this heatmap connects the two: weekday rows carry two sharp commute ridges, driven almost entirely by Subscribers (90.5% of trips), while weekends shift to a broad midday leisure band.</p>
 </div>
 </div>
 </div>
@@ -8273,7 +8273,7 @@ Name: proportion, dtype: float64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Observation:</strong> Weekdays are dominated by <strong>8 AM and 5–6 PM commute spikes</strong> - and from Visualization 2 and the Part I facet plot we know those ridges belong to Subscribers, not casual riders. Weekends trade the ridges for a <strong>broad 10 AM–4 PM leisure band</strong>, the window where Customers concentrate their flatter riding day. <em>Take-away:</em> system capacity (bike rebalancing, dock maintenance) should follow the double weekday peak, while marketing casual passes is best aimed at weekend midday riders.</p>
+<p><strong>Observation:</strong> Weekday ridges sit at <strong>8 AM and 5–6 PM</strong>, and they belong mostly to Subscribers (90.5% of trips). Weekends flatten into a <strong>10 AM–4 PM</strong> band. Practical read: rebalancing and maintenance capacity should follow the double weekday peak, while casual-pass marketing is best aimed at the weekend midday crowd.</p>
 </div>
 </div>
 </div>
@@ -8284,7 +8284,7 @@ Name: proportion, dtype: float64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Visualization-4-%E2%80%94-One-system,-two-usage-patterns">Visualization 4 - One system, two usage patterns<a class="anchor-link" href="#Visualization-4-%E2%80%94-One-system,-two-usage-patterns">¶</a></h2><p>Finally, the two user rhythms side by side, on a shared y-scale so the volume difference stays honest: Subscribers' twin commute spikes versus Customers' broad leisure hump.</p>
+<h2 id="Visualization-4---One-system,-two-usage-patterns">Visualization 4 - One system, two usage patterns<a class="anchor-link" href="#Visualization-4---One-system,-two-usage-patterns">¶</a></h2><p>Finally, the two user rhythms side by side, on a shared y-scale so the volume difference stays honest: Subscribers' twin commute spikes versus Customers' broad leisure hump.</p>
 </div>
 </div>
 </div>
@@ -8355,7 +8355,7 @@ Name: proportion, dtype: float64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Observation:</strong> Subscribers' day is two towers - <strong>8 AM and 5–6 PM</strong> - while Customers' day is one broad hill from late morning through early evening. The shared y-axis shows both that Subscribers dominate volume and that Customers have only a faint commute bump - their busiest hour (5 PM, 2,024 trips) is a tenth of Subscribers' 5 PM bar, and 46% of Customer trips land in the 10 AM–4 PM window. <em>Take-away:</em> the weekend/midday leisure band from the heatmap is, at least in part, a <em>customer</em> pattern that the combined system statistics hide.</p>
+<p><strong>Observation:</strong> Same y-axis, two different days: Subscribers get two towers (<strong>8 AM, 5–6 PM</strong>); Customers get one broad hill from late morning through early evening. Customers' busiest hour (5 PM, 2,024 trips) is about a tenth of Subscribers' 5 PM bar, and 46% of Customer trips fall in the 10 AM–4 PM window - so the heatmap's weekend/midday band is, at least in part, a <em>customer</em> pattern the combined statistics hide.</p>
 </div>
 </div>
 </div>
